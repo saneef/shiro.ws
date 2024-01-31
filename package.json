@@ -1,0 +1,22 @@
+{
+	"name": "shiro.ws",
+	"version": "1.0.0",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"build": "eleventy --quiet",
+		"dev": "eleventy --quiet --serve"
+	},
+	"imports": {
+		"#lib": "./lib/*.js"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@11ty/eleventy": "3.0.0-alpha.4",
+		"@11ty/eleventy-fetch": "^4.0.0",
+		"@notionhq/client": "^2.2.14",
+		"dotenv": "^16.4.1"
+	}
+}

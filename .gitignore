@@ -1,0 +1,13 @@
+.DS_Store
+
+# Local Netlify folder
+.netlify
+.env
+.npm
+.cache
+.vscode
+.eslintcache
+
+/node_modules
+/dist
+/src/images/remote

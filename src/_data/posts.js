@@ -4,6 +4,7 @@ import Image from "@11ty/eleventy-img";
 import { Client, iteratePaginatedAPI } from "@notionhq/client";
 import slugify from "@sindresorhus/slugify";
 import { config } from "dotenv";
+import { isProduction } from "../../eleventy/utils.js";
 import {
 	block2Markdown,
 	parseDateBlock,
@@ -106,11 +107,20 @@ async function downloadRemoteImages(posts) {
 	);
 }
 
+const now = new Date();
+function isFuturePost(post) {
+	return post.publishedOn > now;
+}
+
 export default async function () {
 	const rawData = await getNotionPostsData();
 	let posts = createPosts(rawData);
 
 	posts = await downloadRemoteImages(posts);
+
+	if (isProduction) {
+		posts = posts.filter((p) => !isFuturePost(p));
+	}
 
 	return posts;
 }

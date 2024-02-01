@@ -4,6 +4,8 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title @raw="title ?? site.title" webc:keep></title>
+		<meta name="description" webc:if="description" :content="description" />
+		<meta name="generator" :content="eleventy.generator" />
 
 		<link rel="stylesheet" href="css/reset.css" />
 		<link rel="stylesheet" href="css/fonts.css" />

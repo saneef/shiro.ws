@@ -1,0 +1,46 @@
+---js
+{
+	title: "Posts",
+  pagination: {
+    data: "posts",
+    size: 1,
+    alias: "post"
+  },
+  permalink: function(args) {
+    const { post } = args;
+    return `/posts/${post.slug}/`;
+  }
+}
+---
+
+<h1 @text="post.title"></h1>
+
+<template webc:type="11ty" 11ty:type="webc,md">
+	<template @raw="post.notes" webc:nokeep></template>
+</template>
+
+<ul class="grid" role="list">
+	<template webc:type="11ty" 11ty:type="njk">
+		{% for img in post.localImages %}
+		<li>
+			<img
+				src="{{img.url}}"
+				alt=""
+				width="{{ img.width }}"
+				height="{{ img.height }}"
+			/>
+		</li>
+		{% endfor %}
+	</template>
+</ul>
+
+<style>
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		gap: 1rem;
+	}
+</style>

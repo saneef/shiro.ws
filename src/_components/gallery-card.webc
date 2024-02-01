@@ -1,0 +1,9 @@
+<style webc:scoped>
+	:host {
+		display: block;
+	}
+</style>
+
+<h2>
+	<a :href="`/posts/${post.slug}`" @text="post?.title"></a>
+</h2>

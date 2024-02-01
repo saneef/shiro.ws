@@ -1,0 +1,17 @@
+<style webc:scoped>
+	:host {
+
+	}
+	:host a {
+		text-decoration: none;
+	}
+
+	:host a:hover,
+	:host a:focus,
+	:host a:active {
+		text-decoration: underline;
+	}
+</style>
+<a href="/">
+	<slot></slot>
+</a>

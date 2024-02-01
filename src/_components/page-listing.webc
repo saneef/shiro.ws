@@ -1,0 +1,12 @@
+<style webc:scoped>
+	:host {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+		grid-gap: var(--space-m, 1rem);
+		padding: 0;
+	}
+</style>
+
+<ul webc:root="override" role="list">
+	<slot></slot>
+</ul>

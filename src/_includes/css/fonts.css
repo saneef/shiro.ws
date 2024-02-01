@@ -1,7 +1,15 @@
 @font-face {
-	font-family: "PlaypenSans VF";
+	font-weight: 400;
 	font-style: normal;
-	font-weight: 300 800;
+	font-family: "Playpen Sans";
+	src: url("/fonts/PlaypenSans-Regular-subset.woff2") format("woff2");
 	font-display: swap;
-	src: url("/fonts/PlaypenSans-VF.woff2") format("woff2");
+}
+
+@font-face {
+	font-weight: 700;
+	font-style: normal;
+	font-family: "Playpen Sans";
+	src: url("/fonts/PlaypenSans-Bold-subset.woff2") format("woff2");
+	font-display: swap;
 }

@@ -1,11 +1,13 @@
 #!/usr/bin/env fish
 
-# Available axes for Recursive VF
-# {"tag":"wght","minValue":100,"defaultValue":400,"maxValue":800,"name":{"en":"Weight"}}
+# Use https://www.zachleat.com/unicode-range-interchange/ to merge all ranges
+# Base: U+20-7E,U+A9,U+B0,U+BB,U+D7,U+2013,U+2014,U+2018-2019,U+201C-201D,U+2026
+# Arrows: U+2190-2199
 
+set ranges "U+20-7E,U+A9,U+B0,U+BB,U+D7,U+2013,U+2014,U+2018,U+2019,U+201C,U+201D,U+2026,U+2190-2199"
 
-fonttools varLib.instancer \
-					"PlaypenSans-VariableFont_wght.ttf" \
-					wght=400:800 \
-					-o "PlaypenSans-VF.woff2"
+set files "PlaypenSans-Regular.ttf" "PlaypenSans-Bold.ttf"
 
+for font in $files
+  glyphhanger --whitelist=$ranges --subset=$font --formats=woff2
+end

@@ -13,6 +13,7 @@ export default function (eleventyConfig) {
 
 	eleventyConfig.setServerPassthroughCopyBehavior("passthrough");
 	eleventyConfig.addPassthroughCopy("./src/images/remote/");
+	eleventyConfig.addPassthroughCopy("./src/fonts/*.woff2");
 
 	return {
 		dir: { input: INPUT_DIR, output: OUTPUT_DIR },

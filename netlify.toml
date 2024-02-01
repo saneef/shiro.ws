@@ -2,6 +2,20 @@
   publish = "dist/"
   command = "pnpm run build"
 
+
+##
+## PLUGINS
+##
+
+[[plugins]]
+package = "netlify-plugin-cache"
+  [plugins.inputs]
+  paths = [
+    "dist/images", # Eleventy Image Disk Cache
+    "src/images/remote",
+    ".cache"
+  ]
+
 ##
 ## HEADERS
 ##

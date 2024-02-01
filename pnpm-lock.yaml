@@ -47,6 +47,9 @@ devDependencies:
   luxon:
     specifier: ^3.4.4
     version: 3.4.4
+  netlify-plugin-cache:
+    specifier: ^1.0.3
+    version: 1.0.3
   npm-run-all:
     specifier: ^4.1.5
     version: 4.1.5
@@ -2001,6 +2004,10 @@ packages:
 
   /napi-build-utils@1.0.2:
     resolution: {integrity: sha512-ONmRUqK7zj7DWX0D9ADe03wbwOBZxNAfF20PlGfCWQcD3+/MakShIHrMqx9YwPTfxDdF1zLeL+RGZiR9kGMLdg==}
+    dev: true
+
+  /netlify-plugin-cache@1.0.3:
+    resolution: {integrity: sha512-CTOwNWrTOP59T6y6unxQNnp1WX702v2R/faR5peSH94ebrYfyY4zT5IsRcIiHKq57jXeyCrhy0GLuTN8ktzuQg==}
     dev: true
 
   /nice-try@1.0.5:

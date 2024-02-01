@@ -1,0 +1,54 @@
+[build]
+  publish = "dist/"
+  command = "pnpm run build"
+
+##
+## HEADERS
+##
+
+# Order: default ones on first; specific ones later
+[[headers]]
+  for = "/*"
+  [headers.values]
+    cache-control = '''
+    public,
+    max-age=0,
+    must-revalidate'''
+    Permissions-Policy = "interest-cohort=()"
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1"
+    X-Content-Type-Options = "nosniff"
+
+[[headers]]
+  for = "/*.xml"
+  [headers.values]
+    cache-control = "max-age=900, public"
+[[headers]]
+  for = "/*.json"
+  [headers.values]
+    cache-control = "max-age=900, public"
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    cache-control = "max-age=2592000, public"
+[[headers]]
+  for = "/*.ico"
+  [headers.values]
+    cache-control = "max-age=2592000, public"
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    cache-control = "max-age=31536000, public"
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    cache-control = "max-age=31536000, public"
+
+##
+## REDIRECTS
+##
+
+[[redirects]]
+  from = "/posts/"
+  to = "/"
+  status = 307

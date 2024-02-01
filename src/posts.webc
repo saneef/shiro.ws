@@ -21,33 +21,35 @@
 	}
 </script>
 
-<h1 @text="post.title"></h1>
+<article class="flow flow-space-s">
+	<h1 @text="post.title"></h1>
 
-<ul class="grid" role="list">
-	<li webc:for="img of post.localImages">
-		<framed-img
-			:src="img.url"
-			alt=""
-			:width="img.width"
-			:height="img.height"
-			:sizes="sizes(post.localImages)"
-		></framed-img>
-	</li>
-</ul>
+	<ul class="grid" role="list">
+		<li webc:for="img of post.localImages">
+			<framed-img
+				:src="img.url"
+				alt=""
+				:width="img.width"
+				:height="img.height"
+				:sizes="sizes(post.localImages)"
+			></framed-img>
+		</li>
+	</ul>
 
-<div class="notes flow-space-s">
-	<template webc:type="11ty" 11ty:type="webc,md">
-		<template @raw="post.notes" webc:nokeep></template>
-	</template>
-</div>
+	<div class="notes">
+		<template webc:type="11ty" 11ty:type="webc,md">
+			<template @raw="post.notes" webc:nokeep></template>
+		</template>
+	</div>
 
-<p>
-	Drawn on
-	<time
-		:datetime="date(post.publishedOn,'yyyy-MM-dd',)"
-		@text="date(post.publishedOn,'EEEE, d MMMM, yyyy')"
-	></time>
-</p>
+	<p>
+		Drawn on
+		<time
+			:datetime="date(post.publishedOn,'yyyy-MM-dd',)"
+			@text="date(post.publishedOn,'EEEE, d MMMM, yyyy')"
+		></time>
+	</p>
+</article>
 
 <style>
 	.grid {

@@ -5,6 +5,16 @@
 		grid-gap: var(--space-xl, 1rem);
 		padding: 0;
 	}
+
+	:host > * {
+		--card-rotation-offset: 1.857deg;
+	}
+	:host > *:nth-child(3n + 1) {
+		--card-rotation-offset: -0.522deg;
+	}
+	:host > *:nth-child(5n + 1) {
+		--card-rotation-offset: -2.716deg;
+	}
 </style>
 
 <ul webc:root="override" role="list">

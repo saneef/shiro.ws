@@ -19,7 +19,7 @@
 		</page-layout-header>
 
 		<main class="container">
-			<div class="flow flow-space-l">
+			<div class="flow flow-space-xl">
 				<template @raw="content" webc:nokeep></template>
 			</div>
 		</main>

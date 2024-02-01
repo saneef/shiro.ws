@@ -20,23 +20,21 @@
 	}
 
 	li {
-		--card-rotation: 1.5deg;
+		--_card-rotation-offset: var(--card-rotation-offset, 0deg);
+		--card-rotation: calc(var(--_card-rotation-offset) - 3.2deg);
 
 		grid-column: 1;
 		grid-row: 1;
 		transform: rotate(var(--card-rotation));
 	}
 
-	li:nth-child(2n) {
-		--card-rotation: -1.5deg;
-	}
 
-	li:nth-child(2n + 1) {
-		--card-rotation: 1.7deg;
+	li:nth-child(2) {
+		--card-rotation: calc(var(--_card-rotation-offset) + 2.90deg);
 	}
 
 	li:nth-child(3) {
-		--card-rotation: 3.8deg;
+		--card-rotation: calc(var(--_card-rotation-offset) - 1.135deg);
 	}
 
 	li[data-landscape="true"] {

@@ -1,0 +1,13 @@
+---
+layout: null
+permalink: /robots.txt
+---
+# Generated using {{ robots.url }}
+# Last updated {{ robots.updated }}
+
+{% for robot in robots.disallow -%}
+User-agent: {{ robot }}
+Disallow: /
+
+{% endfor -%}
+

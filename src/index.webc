@@ -1,10 +1,18 @@
 ---
 ---
 
-<p>My name is Shiro. I am a 7 years old human. I love to draw and colour.</p>
+<p class="intro">My name is Shiro. I am a 7 years old human. I love to draw.</p>
 
 <page-listing>
 	<li webc:for="post of posts">
 		<gallery-card :@post="post"></gallery-card>
 	</li>
 </page-listing>
+
+<style>
+	.intro {
+		font-size: var(--step-1);
+		text-wrap: balance;
+		max-width: 35ch;
+	}
+</style>

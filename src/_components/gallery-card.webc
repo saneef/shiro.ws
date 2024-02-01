@@ -1,9 +1,83 @@
 <style webc:scoped>
 	:host {
 		display: block;
+		position: relative;
+	}
+
+	h2 {
+		font-size: var(--step-0);
+	}
+
+	ul {
+		display: grid;
+		justify-items: center;
+		padding-inline-start: 0;
+	}
+
+	img {
+		aspect-ratio: 4 / 3;
+		object-fit: cover;
+	}
+
+	li {
+		--card-rotation: 1.5deg;
+
+		grid-column: 1;
+		grid-row: 1;
+		transform: rotate(var(--card-rotation));
+	}
+
+	li:nth-child(2n) {
+		--card-rotation: -1.5deg;
+	}
+
+	li:nth-child(2n + 1) {
+		--card-rotation: 1.7deg;
+	}
+
+	li:nth-child(3) {
+		--card-rotation: 3.8deg;
+	}
+
+	li[data-landscape="true"] {
+		width: calc(56.25% + var(--frame-border-width));
+	}
+
+	li[data-landscape="true"] img {
+		aspect-ratio: 3 / 4;
+	}
+
+	a::after {
+		content: " ";
+		position: absolute;
+		inset: 0;
 	}
 </style>
 
-<h2>
-	<a :href="`/posts/${post.slug}`" @text="post?.title"></a>
-</h2>
+<script webc:setup>
+	function sizes(width, height) {
+		return height > width
+			? "(min-width: 1100px) 162px, (min-width: 720px) calc(27.5vw - 33px), calc(56vw - 31px)"
+			: "(min-width: 1100px) 287px, (min-width: 720px) calc(49.17vw - 62px), calc(99.25vw - 55px)";
+	}
+</script>
+
+<div webc:root="override" class="flow flow-space-xs">
+	<ul class="covers" role="list">
+		<li
+			webc:for="img of post.localImages"
+			:data-landscape="isLandscape(img.width,img.height)"
+		>
+			<framed-img
+				:src="img.url"
+				alt=""
+				:width="img.width"
+				:height="img.height"
+				:sizes="sizes(img.width, img.height)"
+			></framed-img>
+		</li>
+	</ul>
+	<h2>
+		<a :href="`/posts/${post.slug}`" @text="post?.title"></a>
+	</h2>
+</div>

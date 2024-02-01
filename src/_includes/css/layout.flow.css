@@ -1,0 +1,51 @@
+.flow > :not([hidden]) ~ :not([hidden]) {
+	margin-top: var(--flow-space, 1em);
+}
+
+.flow-space-3xl {
+	--flow-space: var(--space-3xl);
+}
+
+.flow-space-2xl {
+	--flow-space: var(--space-2xl);
+}
+
+.flow-space-xl {
+	--flow-space: var(--space-xl);
+}
+
+.flow-space-l {
+	--flow-space: var(--space-l);
+}
+
+.flow-space-m {
+	--flow-space: var(--space-m);
+}
+
+.flow-space-s {
+	--flow-space: var(--space-s);
+}
+
+.flow-space-xs {
+	--flow-space: var(--space-xs);
+}
+
+.flow-space-2xs {
+	--flow-space: var(--space-2xs);
+}
+
+.flow-space-m-l {
+	--flow-space: var(--space-m-l);
+}
+
+.flow-space-s-l {
+	--flow-space: var(--space-s-l);
+}
+
+.flow-space-xl-2xl {
+	--flow-space: var(--space-xl-2xl);
+}
+
+.flow-space-xl-3xl {
+	--flow-space: var(--space-xl-3xl);
+}

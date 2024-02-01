@@ -1,17 +1,22 @@
 <style webc:scoped>
 	:host {
-
+		color: var(--color-primary);
 	}
+
 	:host a {
+		font-size:var(--step-1);
+		font-weight: bold;
 		text-decoration: none;
 	}
 
 	:host a:hover,
 	:host a:focus,
 	:host a:active {
+		color: var(--color-primary-shade);
 		text-decoration: underline;
 	}
 </style>
+
 <a href="/">
 	<slot></slot>
 </a>

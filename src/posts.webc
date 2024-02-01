@@ -13,26 +13,41 @@
 }
 ---
 
+<script webc:setup>
+	function sizes(array) {
+		return array.length > 1
+			? "(min-width: 1200px) 518px, (min-width: 560px) calc(45.48vw - 19px), calc(99.17vw - 55px)"
+			: "(min-width: 1200px) 1066px, calc(93.52vw - 38px)";
+	}
+</script>
+
 <h1 @text="post.title"></h1>
 
-<template webc:type="11ty" 11ty:type="webc,md">
-	<template @raw="post.notes" webc:nokeep></template>
-</template>
-
 <ul class="grid" role="list">
-	<template webc:type="11ty" 11ty:type="njk">
-		{% for img in post.localImages %}
-		<li>
-			<img
-				src="{{img.url}}"
-				alt=""
-				width="{{ img.width }}"
-				height="{{ img.height }}"
-			/>
-		</li>
-		{% endfor %}
-	</template>
+	<li webc:for="img of post.localImages">
+		<framed-img
+			:src="img.url"
+			alt=""
+			:width="img.width"
+			:height="img.height"
+			:sizes="sizes(post.localImages)"
+		></framed-img>
+	</li>
 </ul>
+
+<div class="notes flow-space-s">
+	<template webc:type="11ty" 11ty:type="webc,md">
+		<template @raw="post.notes" webc:nokeep></template>
+	</template>
+</div>
+
+<p>
+	Drawn on
+	<time
+		:datetime="date(post.publishedOn,'yyyy-MM-dd',)"
+		@text="date(post.publishedOn,'EEEE, d MMMM, yyyy')"
+	></time>
+</p>
 
 <style>
 	.grid {
@@ -42,5 +57,9 @@
 		margin: 0;
 		padding: 0;
 		gap: 1rem;
+	}
+
+	.notes {
+		max-width: 45ch;
 	}
 </style>

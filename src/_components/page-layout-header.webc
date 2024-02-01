@@ -1,0 +1,12 @@
+<style webc:scoped>
+	:host {
+		display: flex;
+		align-items: center;
+		gap: var(--space-s) var(--space-m);
+		padding-block: var(--space-m) var(--space-xl);
+	}
+</style>
+
+<header webc:root="override" class="container">
+	<slot></slot>
+</header>

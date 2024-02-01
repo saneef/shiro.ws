@@ -1,0 +1,13 @@
+<style webc:scoped>
+	:host .wrapper {
+		padding: var(--frame-border-width);
+		display: block;
+	}
+
+	:host img {
+		box-shadow: 0 0 0 calc(var(--frame-border-width) - 1px) var(--color-dark),
+			0 0 0 var(--frame-border-width) var(--color-dark-tint);
+	}
+</style>
+
+<div class="wrapper"><img @attributes /></div>

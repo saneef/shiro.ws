@@ -2,9 +2,14 @@
 	:host {
 		display: flex;
 		align-items: center;
-		gap: 0.5em 1em;
+		gap: var(--space-xs) var(--space-s);
+		padding-block: var(--space-s);
+		position: sticky;
+		top: 100vh;
+		color: var(--color-dark-tint);
 	}
 </style>
-<footer webc:root="override">
+
+<footer webc:root="override" class="container">
 	<slot></slot>
 </footer>

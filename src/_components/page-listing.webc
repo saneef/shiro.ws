@@ -7,14 +7,21 @@
 	}
 
 	:host > * {
-		--card-rotation-offset: 1.857deg;
+		--card-rotation-offset: -1.857deg;
 	}
+
+	:host > *:nth-child(2n + 1) {
+		--card-rotation-offset: 1.6deg;
+	}
+
 	:host > *:nth-child(3n + 1) {
-		--card-rotation-offset: -0.522deg;
+		--card-rotation-offset: 2.716deg;
 	}
+
 	:host > *:nth-child(5n + 1) {
-		--card-rotation-offset: -2.716deg;
+		--card-rotation-offset: 4.522deg;
 	}
+
 </style>
 
 <ul webc:root="override" role="list">

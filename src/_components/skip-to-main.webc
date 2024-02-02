@@ -1,0 +1,27 @@
+<a @attributes>Skip to content</a>
+
+<style webc:scoped>
+	a {
+		position: fixed;
+		top: var(--space-s);
+		right: 100%;
+		z-index: 10000;
+		color: var(--color-primary);
+		font-weight: bold;
+		text-align: center;
+		text-decoration: underline;
+	}
+
+	a:focus {
+		right: var(--space-s);
+		left: var(--space-s);
+		display: block;
+		padding: var(--space-s);
+		background-color: var(--color-light);
+	}
+
+	a:focus:not(:active) {
+		outline-style: solid;
+		outline-offset: 0;
+	}
+</style>

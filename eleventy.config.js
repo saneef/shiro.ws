@@ -46,6 +46,7 @@ export default function (eleventyConfig) {
 	});
 
 	eleventyConfig.setServerPassthroughCopyBehavior("passthrough");
+	eleventyConfig.addPassthroughCopy({ [`${INPUT_DIR}/public`]: "." });
 	eleventyConfig.addPassthroughCopy("./src/fonts/*.woff2");
 
 	if (!isProduction) {

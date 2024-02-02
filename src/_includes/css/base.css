@@ -82,6 +82,12 @@ a:not([class]) {
 	}
 }
 
+h1,
+h2,
+h3 {
+	max-width: 20ch;
+}
+
 h1 {
 	font-size: var(--step-2);
 }

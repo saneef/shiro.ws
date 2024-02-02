@@ -27,7 +27,7 @@
 <article class="flow flow-space-s">
 	<h1 @text="post.title"></h1>
 
-	<ul class="grid" role="list">
+	<ul class="grid flow-space-xl" role="list">
 		<li webc:for="img of post.localImages">
 			<framed-img
 				:src="img.url"
@@ -54,7 +54,7 @@
 	</p>
 </article>
 
-<style>
+<style webc:scoped>
 	.grid {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
@@ -66,5 +66,9 @@
 
 	.notes {
 		max-width: 45ch;
+	}
+
+	h1 {
+		font-size: var(--step-2);
 	}
 </style>

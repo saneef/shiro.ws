@@ -6,14 +6,14 @@
 	:host a {
 		font-size:var(--step-0);
 		font-weight: bold;
-		text-decoration: none;
+		text-decoration-line: none;
 	}
 
 	:host a:hover,
 	:host a:focus,
 	:host a:active {
 		color: var(--color-primary-shade);
-		text-decoration: underline;
+		text-decoration-line: underline;
 	}
 </style>
 

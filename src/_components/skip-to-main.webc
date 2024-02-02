@@ -9,7 +9,7 @@
 		color: var(--color-primary);
 		font-weight: bold;
 		text-align: center;
-		text-decoration: underline;
+		text-decoration-line: underline;
 	}
 
 	a:focus {

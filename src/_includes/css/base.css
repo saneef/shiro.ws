@@ -74,6 +74,10 @@ body {
 	overflow-x: hidden;
 }
 
+a {
+	text-decoration-thickness: 0.1125em;
+}
+
 a:not([class]) {
 	&:hover,
 	&:active,

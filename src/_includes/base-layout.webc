@@ -43,11 +43,12 @@
 		</main>
 
 		<page-layout-footer>
-			<span
-				@text="`© 2023–${(new Date()).getFullYear()} ${metadata.author}`"
-			></span>
-			<a :href="`mailto:${metadata.email}`">Email</a>
-			<a href="/feed.xml">Feed</a>
+			<p @text="`© 2023–${(new Date()).getFullYear()} ${metadata.author}`"></p>
+			<p><a href="/feed.xml">Feed</a></p>
+			<p>
+				<a :href="`mailto:${metadata.email}`">Email me</a>
+				<span class="font-step--2">(My mom or dad will read it to me.)</span>
+			</p>
 		</page-layout-footer>
 
 		<style @raw="getBundle('css', 'defer')" webc:keep></style>

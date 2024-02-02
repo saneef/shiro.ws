@@ -1,6 +1,7 @@
 <style webc:scoped>
 	:host {
 		display: flex;
+		flex-wrap: wrap;
 		align-items: center;
 		gap: var(--space-xs) var(--space-s);
 		padding-block: var(--space-s);

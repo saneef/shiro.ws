@@ -131,3 +131,11 @@ picture {
 	padding-inline: var(--space-xs);
 	margin-inline: auto;
 }
+
+.font-step--2 {
+	font-size: var(--step--2);
+}
+
+.font-step--1 {
+	font-size: var(--step--1);
+}

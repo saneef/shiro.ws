@@ -5,7 +5,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title @raw="title ?? metadata.title" webc:keep></title>
 		<meta name="description" webc:if="description" :content="description" />
-		<meta name="generator" :content="eleventy.generator" />
 
 		<link rel="stylesheet" href="css/reset.css" />
 		<link rel="stylesheet" href="css/fonts.css" />
@@ -13,6 +12,22 @@
 		<link rel="stylesheet" href="css/layout.flow.css" />
 		<style @raw="getBundle('css')" webc:keep></style>
 		<script @raw="getBundle('js')" webc:keep></script>
+
+		<meta name="generator" :content="eleventy.generator" />
+
+		<template webc:type="11ty" 11ty:type="njk">
+			{%- set pageUrl %}{{ page.url | url | absoluteUrl(metadata.url) }}{%
+			endset -%}
+			<link rel="canonical" href="{{ pageUrl }}" />
+			{%- set feedUrl %}{{ "/feed.xml" | absoluteUrl(metadata.url) }}{% endset
+			-%}
+			<link
+				rel="alternate"
+				href="{{ feedUrl }}"
+				title="{{ metadata.title }} Feed"
+				type="application/atom+xml"
+			/>
+		</template>
 	</head>
 	<body>
 		<page-layout-header>

@@ -16,7 +16,7 @@ eleventyExcludeFromCollections: true
 		<email>{{ metadata.email }}</email>
 	</author>
 	{%- for post in posts | reverse %}
-	{%- set postPath = "/post/" + post.slug + "/" %}
+	{%- set postPath = "/posts/" + post.slug + "/" %}
 	{%- set absolutePostUrl = postPath| absoluteUrl(metadata.url) %}
 	<entry>
 		<title>{{ post.title }}</title>

@@ -37,7 +37,7 @@
 	}
 
 	li[data-landscape="true"] {
-		width: calc(56.25% + var(--frame-border-width));
+		width: calc(56.25% + var(--framed-img-border-width));
 	}
 
 	li[data-landscape="true"] img {
@@ -48,6 +48,18 @@
 		content: " ";
 		position: absolute;
 		inset: 0;
+	}
+
+	:host:focus-within a {
+		--outline-size: 0;
+	}
+
+	:host:focus-within li {
+		--framed-img-inner-border-color: var(--color-primary-shade);
+	}
+
+	:host:focus-within li:first-child {
+		--card-rotation: 0deg;
 	}
 </style>
 

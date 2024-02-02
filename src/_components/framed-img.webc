@@ -1,13 +1,22 @@
 <style webc:scoped>
 	:host .wrapper {
-		padding: var(--frame-border-width);
+		--_framed-img-inner-border-color: var(
+			--framed-img-inner-border-color,
+			var(--color-dark)
+		);
+		--_framed-img-outer-border-color: var(
+			--framed-img-outer-border-color,
+			var(--color-dark-tint)
+		);
+		padding: var(--framed-img-border-width);
 		display: block;
 	}
 
 	:host img {
 		background-color: var(--color-dark-tint);
-		box-shadow: 0 0 0 calc(var(--frame-border-width) - 1px) var(--color-dark),
-			0 0 0 var(--frame-border-width) var(--color-dark-tint);
+		box-shadow: 0 0 0 calc(var(--framed-img-border-width) - 1px)
+				var(--_framed-img-inner-border-color),
+			0 0 0 var(--framed-img-border-width) var(--_framed-img-outer-border-color);
 	}
 </style>
 

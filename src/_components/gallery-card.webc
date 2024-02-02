@@ -15,7 +15,7 @@
 	}
 
 	img {
-		aspect-ratio: 4 / 3;
+		aspect-ratio: 1.414;
 		object-fit: cover;
 	}
 
@@ -41,7 +41,7 @@
 	}
 
 	li[data-landscape="true"] img {
-		aspect-ratio: 3 / 4;
+		aspect-ratio: 1 /  1.414;
 	}
 
 	a::after {

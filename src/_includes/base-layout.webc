@@ -15,6 +15,7 @@
 
 		<meta name="generator" :content="eleventy.generator" />
 		<link rel="icon" href="/favicon.ico" />
+		<link rel="icon" href="/icon.svg" type="image/svg+xml" />
 
 		<template webc:type="11ty" 11ty:type="njk">
 			{%- set pageUrl %}{{ page.url | url | absoluteUrl(metadata.url) }}{%

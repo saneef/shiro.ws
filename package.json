@@ -21,6 +21,7 @@
 		"@11ty/eleventy-fetch": "^4.0.0",
 		"@11ty/eleventy-img": "^3.1.8",
 		"@11ty/eleventy-plugin-bundle": "^1.0.5",
+		"@11ty/eleventy-plugin-rss": "^1.2.0",
 		"@11ty/eleventy-plugin-webc": "^0.11.2",
 		"@notionhq/client": "^2.2.14",
 		"@sindresorhus/slugify": "^2.2.1",

@@ -17,6 +17,9 @@ devDependencies:
   '@11ty/eleventy-plugin-bundle':
     specifier: ^1.0.5
     version: 1.0.5
+  '@11ty/eleventy-plugin-rss':
+    specifier: ^1.2.0
+    version: 1.2.0
   '@11ty/eleventy-plugin-webc':
     specifier: ^0.11.2
     version: 0.11.2
@@ -127,6 +130,16 @@ packages:
     engines: {node: '>=14'}
     dependencies:
       debug: 4.3.4
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /@11ty/eleventy-plugin-rss@1.2.0:
+    resolution: {integrity: sha512-YzFnSH/5pObcFnqZ2sAQ782WmpOZHj1+xB9ydY/0j7BZ2jUNahn53VmwCB/sBRwXA/Fbwwj90q1MLo01Ru0UaQ==}
+    dependencies:
+      debug: 4.3.4
+      posthtml: 0.16.6
+      posthtml-urls: 1.0.0
     transitivePeerDependencies:
       - supports-color
     dev: true

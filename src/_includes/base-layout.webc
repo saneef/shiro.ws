@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title @raw="title ?? site.title" webc:keep></title>
+		<title @raw="title ?? metadata.title" webc:keep></title>
 		<meta name="description" webc:if="description" :content="description" />
 		<meta name="generator" :content="eleventy.generator" />
 
@@ -16,7 +16,7 @@
 	</head>
 	<body>
 		<page-layout-header>
-			<page-logo @text="site.title"></page-logo>
+			<page-logo @text="metadata.title"></page-logo>
 			<page-navigation></page-navigation>
 		</page-layout-header>
 
@@ -28,9 +28,10 @@
 
 		<page-layout-footer>
 			<span
-				@text="`© 2023–${(new Date()).getFullYear()} ${site.author}`"
+				@text="`© 2023–${(new Date()).getFullYear()} ${metadata.author}`"
 			></span>
-			<a :href="`mailto:${site.email}`">Email</a>
+			<a :href="`mailto:${metadata.email}`">Email</a>
+			<a href="/feed.xml">Feed</a>
 		</page-layout-footer>
 
 		<style @raw="getBundle('css', 'defer')" webc:keep></style>

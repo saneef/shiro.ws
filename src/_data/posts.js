@@ -56,12 +56,12 @@ function parseImagesPageData(obj) {
 
 	const notes = block2Markdown(Notes);
 	const title = block2Markdown(Title);
-	const publishedOn = parseDateBlock(Published);
+	const date = parseDateBlock(Published);
 	const tags = parseMultiSelectBlock(Tags);
 	const images = parseFilesBlock(Images);
 	const slug = slugify(title);
 
-	return { title, notes, publishedOn, tags, images, slug };
+	return { title, notes, date, tags, images, slug };
 }
 
 function createPosts(notionData) {
@@ -109,7 +109,7 @@ async function downloadRemoteImages(posts) {
 
 const now = new Date();
 function isFuturePost(post) {
-	return post.publishedOn > now;
+	return post.date > now;
 }
 
 export default async function () {

@@ -1,5 +1,6 @@
 // @ts-check
 import { EleventyRenderPlugin } from "@11ty/eleventy";
+import pluginRss from "@11ty/eleventy-plugin-rss";
 import pluginWebC from "@11ty/eleventy-plugin-webc";
 import pluginImg2Picture from "eleventy-plugin-img2picture";
 import filters from "./eleventy/filters.js";
@@ -13,16 +14,17 @@ export default function (eleventyConfig) {
 	eleventyConfig.addPlugin(pluginWebC, {
 		components: "src/_components/**/*.webc",
 	});
-	eleventyConfig.addPlugin(EleventyRenderPlugin);
+
 	eleventyConfig.addPlugin(filters);
 	eleventyConfig.addPlugin(htmlTransforms);
 	eleventyConfig.addPlugin(cssTransforms);
+	eleventyConfig.addPlugin(EleventyRenderPlugin);
+	eleventyConfig.addPlugin(pluginRss);
 	if (isProduction) {
 		eleventyConfig.addPlugin(pluginImg2Picture, {
 			eleventyInputDir: INPUT_DIR,
 			imagesOutputDir: `${OUTPUT_DIR}/images/`,
 			urlPath: "/images/",
-			// sizes: "(min-width: 800px) 720px, 93.33vw", // As suggested by https://ausi.github.io/respimagelint/
 			minWidth: 250,
 			maxWidth: 2050,
 			widthStep: 150,

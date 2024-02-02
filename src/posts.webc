@@ -45,8 +45,8 @@
 	<p>
 		Drawn on
 		<time
-			:datetime="date(post.publishedOn,'yyyy-MM-dd',)"
-			@text="date(post.publishedOn,'EEEE, d MMMM, yyyy')"
+			:datetime="date(post.date,'yyyy-MM-dd',)"
+			@text="date(post.date,'EEEE, d MMMM, yyyy')"
 		></time>
 	</p>
 </article>

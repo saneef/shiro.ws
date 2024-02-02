@@ -9,6 +9,10 @@ const filters = {
 	readableDateFromISO(dateStr, formatStr = "FF") {
 		return DateTime.fromISO(dateStr).toFormat(formatStr);
 	},
+
+	pluralize(count, singlePhrase, pluralPhrase) {
+		return count === 1 ? singlePhrase : pluralPhrase;
+	},
 };
 
 export default function configFunction(eleventyConfig) {

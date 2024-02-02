@@ -7,6 +7,7 @@ import { config } from "dotenv";
 import { isProduction } from "../../eleventy/utils.js";
 import {
 	block2Markdown,
+	block2PlainText,
 	parseDateBlock,
 	parseFilesBlock,
 	parseMultiSelectBlock,
@@ -51,15 +52,31 @@ async function getNotionPostsData() {
 
 function parseImagesPageData(obj) {
 	const {
-		properties: { Title, Notes, "Published on": Published, Tags, Images },
+		properties: {
+			Title,
+			Notes,
+			"Published on": Published,
+			Tags,
+			Images,
+			"Image Alt Texts": imageAltTexts,
+		},
 	} = obj;
 
 	const notes = block2Markdown(Notes);
 	const title = block2Markdown(Title);
 	const date = parseDateBlock(Published);
 	const tags = parseMultiSelectBlock(Tags);
-	const images = parseFilesBlock(Images);
 	const slug = slugify(title);
+	let images = parseFilesBlock(Images);
+
+	let altTexts = block2PlainText(imageAltTexts);
+	altTexts = altTexts.split("\n\n");
+	images = images.map((img, i) => {
+		return {
+			...img,
+			altText: altTexts[i] ?? "",
+		};
+	});
 
 	return { title, notes, date, tags, images, slug };
 }
@@ -77,7 +94,7 @@ function createPosts(notionData) {
 	return imagePages;
 }
 
-async function downloadRemoteImage(remoteUrl) {
+async function fetchRemoteImage(remoteUrl, altText) {
 	const metadata = await Image(remoteUrl, {
 		widths: [1200],
 		outputDir: IMAGES_OUTPUT_DIR,
@@ -93,14 +110,14 @@ async function downloadRemoteImage(remoteUrl) {
 
 	const { width, height, url } = metadata?.jpeg?.[0] ?? {};
 
-	return { width, height, url };
+	return { width, height, url, altText };
 }
 
-async function downloadRemoteImages(posts) {
+async function fetchRemoteImages(posts) {
 	return await Promise.all(
 		posts.map(async (post) => {
 			const localImages = await Promise.all(
-				post?.images?.map(({ url }) => downloadRemoteImage(url)),
+				post?.images?.map(({ url, altText }) => fetchRemoteImage(url, altText)),
 			);
 			return { ...post, localImages };
 		}),
@@ -116,7 +133,7 @@ export default async function () {
 	const rawData = await getNotionPostsData();
 	let posts = createPosts(rawData);
 
-	posts = await downloadRemoteImages(posts);
+	posts = await fetchRemoteImages(posts);
 
 	if (isProduction) {
 		posts = posts.filter((p) => !isFuturePost(p));

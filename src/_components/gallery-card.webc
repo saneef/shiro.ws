@@ -28,9 +28,8 @@
 		transform: rotate(var(--card-rotation));
 	}
 
-
 	li:nth-child(2) {
-		--card-rotation: calc(var(--_card-rotation-offset) + 2.90deg);
+		--card-rotation: calc(var(--_card-rotation-offset) + 2.9deg);
 	}
 
 	li:nth-child(3) {
@@ -68,7 +67,7 @@
 		>
 			<framed-img
 				:src="img.url"
-				alt=""
+				:alt="img.altText"
 				:width="img.width"
 				:height="img.height"
 				:sizes="sizes(img.width, img.height)"

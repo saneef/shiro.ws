@@ -31,7 +31,7 @@
 		<li webc:for="img of post.localImages">
 			<framed-img
 				:src="img.url"
-				alt=""
+				:alt="img.altText"
 				:width="img.width"
 				:height="img.height"
 				:sizes="sizes(post.localImages)"

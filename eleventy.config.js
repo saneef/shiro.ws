@@ -37,7 +37,7 @@ export default function (eleventyConfig) {
 		let metadata = await Image(path.join(INPUT_DIR, src), {
 			outputDir: `${OUTPUT_DIR}/images/`,
 			urlPath: `${site.url}/images/`,
-			widths: [300, 600, 900],
+			widths: [900],
 			formats: ["avif", "webp", "jpeg"],
 		});
 

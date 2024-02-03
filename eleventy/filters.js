@@ -10,8 +10,10 @@ const filters = {
 		return DateTime.fromISO(dateStr).toFormat(formatStr);
 	},
 
-	pluralize(count, singlePhrase, pluralPhrase) {
-		return count === 1 ? singlePhrase : pluralPhrase;
+	getFirstN(arr, n) {
+		if (n === undefined) return arr;
+
+		return arr.slice(0, n);
 	},
 };
 

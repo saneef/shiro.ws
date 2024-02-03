@@ -26,7 +26,7 @@ eleventyExcludeFromCollections: true
 			<id>{{ absolutePostUrl }}</id>
 			<content xml:lang="{{ metadata.language }}" type="html"><![CDATA[
 			{%- for img in post.localImages -%}
-			<p>{% imageForRSS img.url, img.altText, "100vw" %}</p>
+			<p>{% imageForRSS img.url, img.altText %}</p>
 			{%- endfor -%}
 			{%- renderTemplate "njk,md", post %}
 			{{ notes }}

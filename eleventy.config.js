@@ -33,21 +33,16 @@ export default function (eleventyConfig) {
 	eleventyConfig.addPlugin(EleventyRenderPlugin);
 	eleventyConfig.addPlugin(pluginRss);
 
-	eleventyConfig.addShortcode("imageForRSS", async function (src, alt, sizes) {
+	eleventyConfig.addShortcode("imageForRSS", async function (src, alt) {
 		let metadata = await Image(path.join(INPUT_DIR, src), {
 			outputDir: `${OUTPUT_DIR}/images/`,
-			urlPath: `${site.url}/images/`,
+			urlPath: "images/",
 			widths: [900],
-			formats: ["avif", "webp", "jpeg"],
+			formats: ["jpeg"],
 		});
 
-		let imageAttributes = {
-			alt,
-			sizes,
-			loading: "lazy",
-			decoding: "async",
-		};
-		return Image.generateHTML(metadata, imageAttributes);
+		let data = metadata?.jpeg?.[metadata?.jpeg?.length - 1];
+		return `<img src="${site.url}${data?.url}" width="${data?.width}" height="${data?.height}" alt="${alt}" loading="lazy" decoding="async">`;
 	});
 
 	eleventyConfig.addJavaScriptFunction("isLandscape", function (width, height) {

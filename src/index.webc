@@ -2,13 +2,21 @@
 description: Scribbles, sketches, drawings, and paintings by Shiro.
 ---
 
-<p class="intro">My name is Shiro. I am a 7 years old human. I love to draw.</p>
+<section>
+	<p class="intro">
+		My name is Shiro. I am a 7 years old human. I love to draw.
+	</p>
+</section>
 
-<page-listing>
+<visually-hidden>
+	<h1>My Drawings</h1>
+</visually-hidden>
+
+<ul webc:is="page-listing">
 	<li webc:for="post of posts">
 		<gallery-card :@post="post"></gallery-card>
 	</li>
-</page-listing>
+</ul>
 
 <style>
 	.intro {

@@ -1,3 +1,4 @@
+<!--- From https://github.com/11ty/tugboat --->
 <style webc:scoped>
 	:host select {
 		padding: 0.25em;
@@ -36,7 +37,7 @@
 			}
 		});
 
-		let savedTheme = sessionStorage.getItem("theme");
+		let savedTheme = localStorage.getItem("theme");
 		if (savedTheme || query?.matches) {
 			root.classList.add(`theme-${savedTheme || "dark"}`);
 		}
@@ -58,7 +59,7 @@
 				selectCache.add(this.select);
 
 				this.select.removeAttribute("disabled");
-				this.select.value = sessionStorage.getItem("theme") || "";
+				this.select.value = localStorage.getItem("theme") || "";
 
 				this.select.addEventListener("input", function () {
 					let root = document.documentElement;
@@ -67,7 +68,7 @@
 					let theme = this.value;
 					if (theme) {
 						root.classList.add(`theme-${theme}`);
-						sessionStorage.setItem("theme", theme);
+						localStorage.setItem("theme", theme);
 					} else {
 						let systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
 							.matches
@@ -75,7 +76,7 @@
 							: "light";
 
 						root.classList.add(`theme-${systemTheme}`);
-						sessionStorage.removeItem("theme");
+						localStorage.removeItem("theme");
 					}
 
 					// Sync

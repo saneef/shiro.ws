@@ -58,6 +58,13 @@
 	--framed-img-border-width: 5px;
 }
 
+.theme-dark {
+	--color-dark: #f1e7e1;
+	--color-dark-tint: #fffff8;
+	--color-light-shade: #111;
+	--color-light: #222;
+}
+
 html,
 body {
 	height: 100%;

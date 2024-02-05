@@ -1,0 +1,95 @@
+<style webc:scoped>
+	:host select {
+		padding: 0.25em 0.5em;
+		line-height: 1;
+		border-width: 2px;
+		border-radius: 0.25em;
+		border-color: var(--color-dark-tint, rgba(0, 0, 0, 0.3));
+		background-color: var(--color-light-shade, #fff);
+		color: var(--color-dark);
+	}
+	:host select[disabled] {
+		cursor: not-allowed;
+	}
+</style>
+
+<form>
+	<label>
+		Theme
+		<select disabled>
+			<option value="">System</option>
+			<option value="dark">Dark</option>
+			<option value="light" selected>Light</option>
+		</select>
+	</label>
+</form>
+
+<script>
+	(function () {
+		let root = document.documentElement;
+		let query = window.matchMedia("(prefers-color-scheme: dark)");
+		query.addEventListener("change", function (e) {
+			if (e.matches) {
+				root.classList.add("theme-dark");
+			} else {
+				root.classList.remove("theme-dark");
+			}
+		});
+
+		let savedTheme = sessionStorage.getItem("theme");
+		if (savedTheme || query?.matches) {
+			root.classList.add(`theme-${savedTheme || "dark"}`);
+		}
+	})();
+</script>
+
+<script webc:bucket="defer">
+	let selectCache = new Set();
+
+	class ColorSchemer extends HTMLElement {
+		disconnectedCallback() {
+			selectCache.delete(this.select);
+		}
+
+		connectedCallback() {
+			this.select = this.querySelector("select");
+
+			if (this.select) {
+				selectCache.add(this.select);
+
+				this.select.removeAttribute("disabled");
+				this.select.value = sessionStorage.getItem("theme") || "";
+
+				this.select.addEventListener("input", function () {
+					let root = document.documentElement;
+					root.classList.remove("theme-dark", "theme-light");
+
+					let theme = this.value;
+					if (theme) {
+						root.classList.add(`theme-${theme}`);
+						sessionStorage.setItem("theme", theme);
+					} else {
+						let systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
+							.matches
+							? "dark"
+							: "light";
+
+						root.classList.add(`theme-${systemTheme}`);
+						sessionStorage.removeItem("theme");
+					}
+
+					// Sync
+					for (let select of selectCache) {
+						if (select && select !== this) {
+							select.value = theme;
+						}
+					}
+				});
+			}
+		}
+	}
+
+	if ("customElements" in window) {
+		window.customElements.define("color-schemer", ColorSchemer);
+	}
+</script>

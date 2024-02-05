@@ -51,6 +51,7 @@
 				<a :href="`mailto:${metadata.email}`">Email me</a>
 				<span class="font-step--2">(My mom or dad will read it to me.)</span>
 			</p>
+			<color-schemer></color-schemer>
 		</page-layout-footer>
 
 		<style @raw="getBundle('css', 'defer')" webc:keep></style>

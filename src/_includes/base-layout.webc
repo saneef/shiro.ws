@@ -45,13 +45,21 @@
 		</main>
 
 		<page-layout-footer>
+			<nav slot="nav" webc:nokeep>
+				<a href="/feed.xml">Feed</a>
+
+				<p>
+					<a :href="`mailto:${metadata.email}`">Email me</a>
+					<span class="font-step--2">(My mom or dad will read it to me.)</span>
+				</p>
+
+				<color-schemer></color-schemer>
+			</nav>
+
 			<p @text="`© 2023–${(new Date()).getFullYear()} ${metadata.author}`"></p>
-			<p><a href="/feed.xml">Feed</a></p>
-			<p>
-				<a :href="`mailto:${metadata.email}`">Email me</a>
-				<span class="font-step--2">(My mom or dad will read it to me.)</span>
-			</p>
-			<color-schemer></color-schemer>
+			<a href="https://github.com/saneef/shiro.ws" title="Sourcecode on Github">
+				Sourcecode
+			</a>
 		</page-layout-footer>
 
 		<style @raw="getBundle('css', 'defer')" webc:keep></style>

@@ -11,6 +11,7 @@
 	}
 	:host select[disabled] {
 		cursor: not-allowed;
+		color: var(--color-dark-tint);
 	}
 </style>
 

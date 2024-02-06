@@ -5,12 +5,9 @@ We use Notion (database) as the CMS.
 The website is hosted on Netlify.
 We call Netlify's build hook from iOS or macOS shortcut app to rebuild and depoly the website.
 
-<figure>
-  <img src="./screenshot-of-notion-database-cms.png" alt="Screenshot of the Notion database">
-  <figcaption>
-    Screenshot of Notion database. The fields currently use in building website are: Published On (Date), Title (Title), Images (Files & media), Image Alt Texts (Text) and Notes (Text).
-  </figcaption>
-</figure>
+|<img src="./screenshot-of-notion-database-cms.png" alt="Screenshot of the Notion database">|
+|:--|
+|Screenshot of Notion database. The fields used in generating the website are: Published On (Date), Title (Title), Images (Files & media), Image Alt Texts (Text) and Notes (Text).|
 
 
 Each line of text (separated by a new line) from "Image Alt Texts" are used as `alt` text for each images.

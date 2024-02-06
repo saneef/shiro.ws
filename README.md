@@ -12,6 +12,7 @@ We call Netlify's build hook from iOS or macOS shortcut app to rebuild and depol
   </figcaption>
 </figure>
 
+
 Each line of text (separated by a new line) from "Image Alt Texts" are used as `alt` text for each images.
 
 ## Development

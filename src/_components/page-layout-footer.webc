@@ -2,7 +2,7 @@
 	:host {
 		position: sticky;
 		top: 100vh;
-		padding-block: var(--space-s);
+		padding-block: var(--space-xl) var(--space-m);
 		color: var(--color-dark-tint);
 	}
 

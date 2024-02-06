@@ -6,6 +6,7 @@
 
 	h2 {
 		font-size: var(--step-0);
+		line-height: 1.35;
 	}
 
 	ul {

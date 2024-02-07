@@ -30,6 +30,10 @@
 	(function () {
 		let root = document.documentElement;
 		let query = window.matchMedia("(prefers-color-scheme: dark)");
+
+		// .theme-system is added on the page load to apply
+		// styles if JS is loaded.
+		root.classList.remove("theme-system");
 		query.addEventListener("change", function (e) {
 			if (e.matches) {
 				root.classList.add("theme-dark");

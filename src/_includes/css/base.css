@@ -59,10 +59,20 @@
 }
 
 .theme-dark {
+	/* Duplicate same in .theme-system */
 	--color-dark: #bbbbad;
 	--color-dark-tint: #98988d;
 	--color-light-shade: #111;
 	--color-light: #222;
+}
+
+@media (prefers-color-scheme: dark) {
+	.theme-system {
+		--color-dark: #bbbbad;
+		--color-dark-tint: #98988d;
+		--color-light-shade: #111;
+		--color-light: #222;
+	}
 }
 
 html,

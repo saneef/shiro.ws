@@ -22,7 +22,7 @@
 
 	li {
 		--_card-rotation-offset: var(--card-rotation-offset, 0deg);
-		--card-rotation: calc(var(--_card-rotation-offset) - 3.2deg);
+		--card-rotation: var(--_card-rotation-offset);
 
 		grid-column: 1;
 		grid-row: 1;
@@ -30,11 +30,11 @@
 	}
 
 	li:nth-child(2) {
-		--card-rotation: calc(var(--_card-rotation-offset) + 2.9deg);
+		--card-rotation: calc(var(--_card-rotation-offset) - 7.28deg);
 	}
 
 	li:nth-child(3) {
-		--card-rotation: calc(var(--_card-rotation-offset) - 1.135deg);
+		--card-rotation: calc(var(--_card-rotation-offset) + 3.135deg);
 	}
 
 	li[data-landscape="true"] {
@@ -42,7 +42,7 @@
 	}
 
 	li[data-landscape="true"] img {
-		aspect-ratio: 1 /  1.414;
+		aspect-ratio: 1 / 1.414;
 	}
 
 	a::after {

@@ -1,0 +1,3 @@
+{
+	"overrides": [{ "files": "*.webc", "options": { "parser": "html" } }]
+}

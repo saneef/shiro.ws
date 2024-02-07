@@ -2,13 +2,12 @@
 <style webc:scoped>
 	:host select {
 		padding: 0.25em;
-		line-height: 1;
-		border-width: 2px;
+		border: 2px solid var(--color-dark-tint, rgba(0, 0, 0, 0.3));
 		border-radius: 0.25em;
-		border-color: var(--color-dark-tint, rgba(0, 0, 0, 0.3));
 		background-color: var(--color-light-shade, #fff);
 		color: var(--color-dark);
 	}
+
 	:host select[disabled] {
 		cursor: not-allowed;
 		color: var(--color-dark-tint);

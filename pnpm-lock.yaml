@@ -6,8 +6,8 @@ settings:
 
 devDependencies:
   '@11ty/eleventy':
-    specifier: 3.0.0-alpha.4
-    version: 3.0.0-alpha.4
+    specifier: 3.0.0-alpha.5
+    version: 3.0.0-alpha.5
   '@11ty/eleventy-fetch':
     specifier: ^4.0.0
     version: 4.0.0
@@ -80,7 +80,7 @@ packages:
     hasBin: true
     dependencies:
       '@11ty/eleventy-utils': 1.0.2
-      chokidar: 3.5.3
+      chokidar: 3.6.0
       debug: 4.3.4
       dev-ip: 1.0.1
       finalhandler: 1.2.0
@@ -161,8 +161,8 @@ packages:
       normalize-path: 3.0.0
     dev: true
 
-  /@11ty/eleventy@3.0.0-alpha.4:
-    resolution: {integrity: sha512-2PIEQ9HfLu6Yx8aCNixzkWXAS1z39ZNXRg+IY4jbZC7uTVo7R70vieS6hzR3uQ879dRoq+VSj0T+rG62tkuD5g==}
+  /@11ty/eleventy@3.0.0-alpha.5:
+    resolution: {integrity: sha512-JRWRqoAalwkiWIb9dQHmSX40kSOD6vhUwt73df/PWZPYzlAPxx27Gfi96TzR2bE+lmZ8IwgQzhYEBenL9tJ9Ow==}
     engines: {node: '>=18'}
     hasBin: true
     dependencies:
@@ -171,9 +171,10 @@ packages:
       '@11ty/eleventy-dev-server': 1.0.4
       '@11ty/eleventy-utils': 1.0.2
       '@11ty/lodash-custom': 4.17.21
+      '@11ty/posthtml-urls': 1.0.0
       '@sindresorhus/slugify': 2.2.1
       bcp-47-normalize: 2.3.0
-      chokidar: 3.5.3
+      chokidar: 3.6.0
       cross-spawn: 7.0.3
       debug: 4.3.4
       dependency-graph: 0.11.0
@@ -192,12 +193,11 @@ packages:
       multimatch: 7.0.0
       node-retrieve-globals: 5.0.0
       normalize-path: 3.0.0
-      nunjucks: 3.2.4(chokidar@3.5.3)
+      nunjucks: 3.2.4(chokidar@3.6.0)
       please-upgrade-node: 3.2.0
       posthtml: 0.16.6
-      posthtml-urls: 1.0.0
       recursive-copy: 2.0.14
-      semver: 7.5.4
+      semver: 7.6.0
       slugify: 1.6.6
     transitivePeerDependencies:
       - bufferutil
@@ -208,6 +208,17 @@ packages:
   /@11ty/lodash-custom@4.17.21:
     resolution: {integrity: sha512-Mqt6im1xpb1Ykn3nbcCovWXK3ggywRJa+IXIdoz4wIIK+cvozADH63lexcuPpGS/gJ6/m2JxyyXDyupkMr5DHw==}
     engines: {node: '>=14'}
+    dev: true
+
+  /@11ty/posthtml-urls@1.0.0:
+    resolution: {integrity: sha512-CcsRdI933x613u7CjM+QGs7iD/m8SaDup3Apohg1+7dybigrEUHc2jGS3mcMgQKvF2+IphqmepD/FrKLlPkPEg==}
+    engines: {node: '>= 6'}
+    dependencies:
+      evaluate-value: 2.0.0
+      http-equiv-refresh: 2.0.1
+      list-to-array: 1.1.0
+      object.entries: 1.1.7
+      parse-srcset: 1.0.2
     dev: true
 
   /@11ty/webc@0.11.4:
@@ -632,8 +643,8 @@ packages:
       parse5-htmlparser2-tree-adapter: 7.0.0
     dev: true
 
-  /chokidar@3.5.3:
-    resolution: {integrity: sha512-Dr3sfKRP6oTcjf2JmUmFJfeVMvXBdegxB0iVQ5eb2V10uFJUCAS8OByZdVAyVb8xXNz3GjjTgj9kLWsZTqE6kw==}
+  /chokidar@3.6.0:
+    resolution: {integrity: sha512-7VT13fmjotKpGipCW9JEQAusEPE+Ei8nl6/g4FBAmIm0GOOLMua9NDDo/DWp0ZAxCr3cPq5ZpBqmPAQgDda2Pw==}
     engines: {node: '>= 8.10.0'}
     dependencies:
       anymatch: 3.1.3
@@ -1115,6 +1126,11 @@ packages:
     hasBin: true
     dev: true
 
+  /evaluate-value@2.0.0:
+    resolution: {integrity: sha512-VonfiuDJc0z4sOO7W0Pd130VLsXN6vmBWZlrog1mCb/o7o/Nl5Lr25+Kj/nkCCAhG+zqeeGjxhkK9oHpkgTHhQ==}
+    engines: {node: '>= 8'}
+    dev: true
+
   /eventemitter3@4.0.7:
     resolution: {integrity: sha512-8guHBZCwKnFhYdHr2ysuRWErTwhoN2X8XELRlrRwpmfeY2jjuUN4taQMsULKUVo1K4DvZl+0pgfyoysHxvmvEw==}
     dev: true
@@ -1411,6 +1427,11 @@ packages:
   /http-equiv-refresh@1.0.0:
     resolution: {integrity: sha512-TScO04soylRN9i/QdOdgZyhydXg9z6XdaGzEyOgDKycePeDeTT4KvigjBcI+tgfTlieLWauGORMq5F1eIDa+1w==}
     engines: {node: '>= 0.10'}
+    dev: true
+
+  /http-equiv-refresh@2.0.1:
+    resolution: {integrity: sha512-XJpDL/MLkV3dKwLzHwr2dY05dYNfBNlyPu4STQ8WvKCFdc6vC5tPXuq28of663+gHVg03C+16pHHs/+FmmDjcw==}
+    engines: {node: '>= 6'}
     dev: true
 
   /ieee754@1.2.1:
@@ -2122,7 +2143,7 @@ packages:
       boolbase: 1.0.0
     dev: true
 
-  /nunjucks@3.2.4(chokidar@3.5.3):
+  /nunjucks@3.2.4(chokidar@3.6.0):
     resolution: {integrity: sha512-26XRV6BhkgK0VOxfbU5cQI+ICFUtMLixv1noZn1tGU38kQH5A5nmmbk/O45xdyBhD1esk47nKrY0mvQpZIhRjQ==}
     engines: {node: '>= 6.9.0'}
     hasBin: true
@@ -2134,7 +2155,7 @@ packages:
     dependencies:
       a-sync-waterfall: 1.0.1
       asap: 2.0.6
-      chokidar: 3.5.3
+      chokidar: 3.6.0
       commander: 5.1.0
     dev: true
 
@@ -2155,6 +2176,15 @@ packages:
       define-properties: 1.2.1
       has-symbols: 1.0.3
       object-keys: 1.1.1
+    dev: true
+
+  /object.entries@1.1.7:
+    resolution: {integrity: sha512-jCBs/0plmPsOnrKAfFQXRG2NFjlhZgjjcBLSmTnEhU8U6vVTsVe8ANeQJCHTl3gSsI4J+0emOoCgoKlmQPMgmA==}
+    engines: {node: '>= 0.4'}
+    dependencies:
+      call-bind: 1.0.5
+      define-properties: 1.2.1
+      es-abstract: 1.22.3
     dev: true
 
   /on-finished@2.4.1:
@@ -2596,6 +2626,14 @@ packages:
 
   /semver@7.5.4:
     resolution: {integrity: sha512-1bCSESV6Pv+i21Hvpxp3Dx+pSD8lIPt8uVjRrxAUt/nbswYc+tK6Y2btiULjd4+fnq15PX+nqQDC7Oft7WkwcA==}
+    engines: {node: '>=10'}
+    hasBin: true
+    dependencies:
+      lru-cache: 6.0.0
+    dev: true
+
+  /semver@7.6.0:
+    resolution: {integrity: sha512-EnwXhrlwXMk9gKu5/flx5sv/an57AkRplG3hTK68W7FRDN+k+OWBj65M7719OkA82XLBxrcX0KSHj+X5COhOVg==}
     engines: {node: '>=10'}
     hasBin: true
     dependencies:

@@ -1,5 +1,24 @@
----
-description: Scribbles, sketches, drawings, and paintings by Shiro.
+---js
+{
+	pagination: {
+		data: "posts",
+		size: 9,
+	},
+	permalink: function({ pagination }) {
+		if (pagination.pageNumber > 0) {
+			return `page-${ pagination.pageNumber + 1 }/index.html`
+		}
+		return "index.html";
+	},
+	eleventyComputed: {
+		description: function({ pagination }) {
+			if (pagination.pageNumber === 0) {
+				return "Scribbles, sketches, drawings, and paintings by Shiro."
+			}
+			return "";
+		}
+	}
+}
 ---
 
 <section>
@@ -14,10 +33,12 @@ description: Scribbles, sketches, drawings, and paintings by Shiro.
 </visually-hidden>
 
 <ul webc:is="page-listing">
-	<li webc:for="post of posts">
+	<li webc:for="post of pagination.items">
 		<gallery-card :@post="post"></gallery-card>
 	</li>
 </ul>
+
+<pager :@pagination="pagination"></pager>
 
 <style>
 	.intro {

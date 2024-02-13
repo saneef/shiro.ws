@@ -1,0 +1,28 @@
+<nav
+	webc:if="pagination.href.previous || pagination.href.next"
+	aria-labelledby="pager-title"
+>
+	<visually-hidden>
+		<h2 id="pager-title">More pictures</h2>
+	</visually-hidden>
+
+	<a webc:if="pagination.href.previous" :href="pagination.href.previous">
+		Previous
+	</a>
+	<a webc:if="pagination.href.next" :href="pagination.href.next"> Next </a>
+</nav>
+
+<style webc:scoped>
+	:host {
+		display: block;
+	}
+
+	:host nav {
+		display: flex;
+		gap: var(--space-s);
+	}
+
+	:host a {
+		font-weight: bold;
+	}
+</style>

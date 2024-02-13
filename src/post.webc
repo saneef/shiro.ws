@@ -53,6 +53,10 @@
 		></time
 		>.
 	</p>
+
+	<footer class="flow-space-xl">
+		<pager :@pagination="pagination"></pager>
+	</footer>
 </article>
 
 <style webc:scoped>

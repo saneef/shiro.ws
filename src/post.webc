@@ -30,11 +30,11 @@
 	<ul class="grid flow-space-xl" role="list">
 		<li webc:for="img of post.localImages">
 			<framed-img
-				:src="img.url"
-				:alt="img.altText"
-				:width="img.width"
-				:height="img.height"
-				:sizes="sizes(post.localImages)"
+				:@src="img.url"
+				:@alt="img.altText"
+				:@width="img.width"
+				:@height="img.height"
+				:@sizes="sizes(post.localImages)"
 			></framed-img>
 		</li>
 	</ul>

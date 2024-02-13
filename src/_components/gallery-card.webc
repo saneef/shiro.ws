@@ -79,11 +79,11 @@
 			:data-landscape="isLandscape(img.width,img.height)"
 		>
 			<framed-img
-				:src="img.url"
-				:alt="img.altText"
-				:width="img.width"
-				:height="img.height"
-				:sizes="sizes(img.width, img.height)"
+				:@src="img.url"
+				:@alt="img.altText"
+				:@width="img.width"
+				:@height="img.height"
+				:@sizes="sizes(img.width, img.height)"
 			></framed-img>
 		</li>
 	</ul>

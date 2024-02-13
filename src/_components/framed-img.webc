@@ -1,5 +1,5 @@
 <style webc:scoped>
-	:host .wrapper {
+	:host {
 		--_framed-img-inner-border-color: var(
 			--framed-img-inner-border-color,
 			var(--color-dark)
@@ -21,4 +21,4 @@
 	}
 </style>
 
-<div class="wrapper"><img @attributes /></div>
+<img :src="src" :alt="alt" :width="width" :height="height" :sizes="sizes" />

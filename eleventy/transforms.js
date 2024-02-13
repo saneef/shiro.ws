@@ -1,6 +1,6 @@
+import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 import pluginBundle from "@11ty/eleventy-plugin-bundle";
 import browserslist from "browserslist";
-import pluginImg2Picture from "eleventy-plugin-img2picture";
 import htmlmin from "html-minifier-terser";
 import { browserslistToTargets, transform } from "lightningcss";
 import { isProduction } from "./utils.js";
@@ -44,29 +44,11 @@ export function cssTransforms(eleventyConfig) {
 	});
 }
 
-export function imageTransforms(
-	eleventyConfig,
-	{ eleventyInputDir, imagesOutputDir },
-) {
+export function imageTransforms(eleventyConfig, { urlPath }) {
 	if (isProduction) {
-		eleventyConfig.addPlugin(pluginImg2Picture, {
-			eleventyInputDir,
-			imagesOutputDir,
-			urlPath: "/images/",
-			minWidth: 250,
-			maxWidth: 2050,
-			widthStep: 150,
-			fetchRemote: true,
-			sharpAvifOptions: {
-				quality: 70,
-			},
-			sharpJpegOptions: {
-				quality: 90,
-				progressive: true,
-			},
-			sharpWebpOptions: {
-				quality: 95,
-			},
+		eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
+			urlPath,
+			formats: ["avif", "webp", "jpeg"],
 		});
 	}
 }

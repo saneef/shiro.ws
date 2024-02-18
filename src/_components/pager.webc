@@ -1,3 +1,14 @@
+<script webc:setup>
+	function shouldShowPageCount(showPageCount) {
+		return showPageCount !== undefined;
+	}
+
+	function pageCount(pagination) {
+		const { pageNumber, pages } = pagination;
+		return `Page ${pageNumber + 1} of ${pages.length}`;
+	}
+</script>
+
 <nav
 	webc:if="pagination.href.previous || pagination.href.next"
 	aria-labelledby="pager-title"
@@ -7,9 +18,18 @@
 	</visually-hidden>
 
 	<a webc:if="pagination.href.previous" :href="pagination.href.previous">
+		<span class="arrow" aria-hidden="true">«</span>
 		Previous
 	</a>
-	<a webc:if="pagination.href.next" :href="pagination.href.next"> Next </a>
+	<span
+		class="count"
+		webc:if="shouldShowPageCount(showPageCount)"
+		@text="pageCount(pagination)"
+	></span>
+	<a webc:if="pagination.href.next" :href="pagination.href.next">
+		Next
+		<span class="arrow" aria-hidden="true">»</span>
+	</a>
 </nav>
 
 <style webc:scoped>
@@ -24,5 +44,9 @@
 
 	:host a {
 		font-weight: bold;
+	}
+
+	:host .count {
+		color: var(--color-dark-tint);
 	}
 </style>

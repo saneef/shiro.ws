@@ -11,9 +11,7 @@ import {
 	imageTransforms,
 } from "./eleventy/transforms.js";
 import { isProduction } from "./eleventy/utils.js";
-import metadata from "./src/_data/metadata.js";
-
-const site = metadata();
+import site from "./src/_data/metadata.js";
 
 const INPUT_DIR = "src";
 const OUTPUT_DIR = "dist";

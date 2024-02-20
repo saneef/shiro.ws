@@ -1,26 +1,3 @@
----js
-{
-	pagination: {
-		data: "posts",
-		size: 9,
-	},
-	permalink: function({ pagination }) {
-		if (pagination.pageNumber > 0) {
-			return `page-${ pagination.pageNumber + 1 }/index.html`
-		}
-		return "index.html";
-	},
-	eleventyComputed: {
-		description: function({ pagination }) {
-			if (pagination.pageNumber === 0) {
-				return "Scribbles, sketches, drawings, and paintings by Shiro."
-			}
-			return "";
-		}
-	}
-}
----
-
 <section>
 	<p class="intro">
 		My name is Shiro. I am a 7&NoBreak;-&NoBreak;year&NoBreak;-&NoBreak;old

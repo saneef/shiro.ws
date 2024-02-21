@@ -14,6 +14,21 @@
 		<style @raw="getBundle('css')" webc:keep></style>
 		<script @raw="getBundle('js')" webc:keep></script>
 
+		<link
+			rel="preload"
+			href="/fonts/PlaypenSans-Regular-subset.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin=""
+		/>
+		<link
+			rel="preload"
+			href="/fonts/PlaypenSans-Bold-subset.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin=""
+		/>
+
 		<meta name="generator" :content="eleventy.generator" />
 		<link rel="icon" href="/favicon.ico" />
 		<link rel="icon" href="/icon.svg" type="image/svg+xml" />

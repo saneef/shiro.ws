@@ -96,7 +96,7 @@ function createPosts(notionData) {
 
 async function fetchRemoteImage(remoteUrl, altText) {
 	const metadata = await Image(remoteUrl, {
-		widths: [1200],
+		widths: [2600],
 		outputDir: IMAGES_OUTPUT_DIR,
 		urlPath: IMAGES_URL_PATH,
 		formats: ["jpeg"],

@@ -21,4 +21,11 @@
 	}
 </style>
 
-<img :src="src" :alt="alt" :width="width" :height="height" :sizes="sizes" />
+<img
+	:src="src"
+	:alt="alt"
+	:width="width"
+	:height="height"
+	:sizes="sizes"
+	:loading="loading"
+/>

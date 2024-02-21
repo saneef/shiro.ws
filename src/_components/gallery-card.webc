@@ -84,6 +84,7 @@
 				:@width="img.width"
 				:@height="img.height"
 				:@sizes="sizes(img.width, img.height)"
+				:@loading="loadEager ? 'eager' : 'lazy'"
 			></framed-img>
 		</li>
 	</ul>

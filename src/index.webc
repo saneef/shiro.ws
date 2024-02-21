@@ -10,8 +10,8 @@
 </visually-hidden>
 
 <ul webc:is="page-listing">
-	<li webc:for="post of pagination.items">
-		<gallery-card :@post="post"></gallery-card>
+	<li webc:for="(post, index) of pagination.items">
+		<gallery-card :@post="post" :@load-eager="index <= 3"></gallery-card>
 	</li>
 </ul>
 

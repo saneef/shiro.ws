@@ -49,6 +49,7 @@ export function imageTransforms(eleventyConfig, { urlPath }) {
 		eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
 			urlPath,
 			formats: ["avif", "webp", "jpeg"],
+			widths: [300, 600, 900, 1200, 1500, 1800, 2100],
 			defaultAttributes: {
 				loading: "lazy",
 				decoding: "async",

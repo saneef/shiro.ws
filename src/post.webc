@@ -20,6 +20,7 @@
 				:@width="img.width"
 				:@height="img.height"
 				:@sizes="sizes(post.localImages)"
+				@widths="300,600,900,1200,1500,1800,2100"
 			></framed-img>
 		</li>
 	</ul>

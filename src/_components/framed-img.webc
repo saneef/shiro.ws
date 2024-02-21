@@ -28,4 +28,5 @@
 	:height="height"
 	:sizes="sizes"
 	:loading="loading"
+	:eleventy:widths="widths"
 />

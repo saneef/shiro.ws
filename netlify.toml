@@ -66,3 +66,11 @@ package = "netlify-plugin-cache"
   from = "/posts/"
   to = "/"
   status = 307
+[[redirects]]
+  from = "/.well-known/host-meta*"
+  to = "https://fed.brid.gy/.well-known/host-meta:splat"
+  status = 302
+[[redirects]]
+  from = "/.well-known/webfinger*"
+  to = "https://fed.brid.gy/.well-known/webfinger"
+  status = 302

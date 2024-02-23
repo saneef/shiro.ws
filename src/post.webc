@@ -9,36 +9,40 @@
 	}
 </script>
 
-<article class="flow flow-space-s">
-	<h1 @text="post.title"></h1>
+<article class="h-entry flow flow-space-s">
+	<h1 class="p-name" @text="post.title"></h1>
 
-	<ul class="grid flow-space-xl" role="list">
-		<li webc:for="img of post.localImages">
-			<framed-img
-				:@src="img.url"
-				:@alt="img.altText"
-				:@width="img.width"
-				:@height="img.height"
-				:@sizes="sizes(post.localImages)"
-				@widths="300,600,900,1200,1500,1800,2100"
-			></framed-img>
-		</li>
-	</ul>
+	<div class="e-content flow flow-space-s">
+		<ul class="grid flow-space-xl" role="list">
+			<li webc:for="img of post.localImages">
+				<framed-img
+					:@src="img.url"
+					:@alt="img.altText"
+					:@width="img.width"
+					:@height="img.height"
+					:@sizes="sizes(post.localImages)"
+					@widths="300,600,900,1200,1500,1800,2100"
+					@img-class="u-photo"
+				></framed-img>
+			</li>
+		</ul>
 
-	<div class="notes">
-		<template webc:type="11ty" 11ty:type="webc,md">
-			<template @raw="post.notes" webc:nokeep></template>
-		</template>
+		<div class="notes e-content">
+			<template webc:type="11ty" 11ty:type="webc,md">
+				<template @raw="post.notes" webc:nokeep></template>
+			</template>
+		</div>
+
+		<p>
+			Drawn on
+			<time
+				class="dt-published"
+				:datetime="date(post.date,'yyyy-MM-dd',)"
+				@text="date(post.date,'EEEE, d MMMM, yyyy')"
+			></time
+			>.
+		</p>
 	</div>
-
-	<p>
-		Drawn on
-		<time
-			:datetime="date(post.date,'yyyy-MM-dd',)"
-			@text="date(post.date,'EEEE, d MMMM, yyyy')"
-		></time
-		>.
-	</p>
 
 	<footer class="flow-space-xl">
 		<pager :@pagination="pagination"></pager>

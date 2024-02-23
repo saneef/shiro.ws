@@ -160,3 +160,7 @@ picture {
 .font-step--1 {
 	font-size: var(--step--1);
 }
+
+[hidden="hidden"] {
+	display: none;
+}

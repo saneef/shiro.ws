@@ -77,7 +77,23 @@
 				</a>
 			</nav>
 
-			<p @text="`© 2023–${(new Date()).getFullYear()} ${metadata.author}`"></p>
+			<p>
+				<template
+					@text="`© 2023–${(new Date()).getFullYear()}`"
+					webc:nokeep
+				></template>
+				<span class="h-card">
+					<a :href="metadata.url" @text="metadata.author"></a>
+					<img
+						class=""
+						src="/icon.png"
+						alt=""
+						hidden="hidden"
+						aria-hidden="true"
+						eleventy:ignore
+					/>
+				</span>
+			</p>
 			<color-schemer></color-schemer>
 		</page-layout-footer>
 

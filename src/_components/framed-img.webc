@@ -29,4 +29,5 @@
 	:sizes="sizes"
 	:loading="loading"
 	:eleventy:widths="widths"
+	:class="`${imgClass}`"
 />

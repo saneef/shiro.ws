@@ -44,6 +44,7 @@
 		"Segoe UI Emoji";
 
 	--container-max-width: 56rem;
+	--container-padding-inline: var(--space-xs);
 	--flow-space: var(--space-m);
 
 	--color-dark: #222;
@@ -149,7 +150,7 @@ picture {
 
 .container {
 	max-width: var(--container-max-width);
-	padding-inline: var(--space-xs);
+	padding-inline: var(--container-padding-inline);
 	margin-inline: auto;
 }
 

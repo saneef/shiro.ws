@@ -2,10 +2,16 @@
 ---
 
 <script webc:setup>
-	function sizes(array) {
-		return array.length > 1
-			? "(min-width: 1200px) 518px, (min-width: 560px) calc(45.48vw - 19px), calc(99.17vw - 55px)"
-			: "(min-width: 1200px) 1066px, calc(93.52vw - 38px)";
+	function sizes(array, currentIndex) {
+		if (array.length > 1) {
+			return "(min-width: 1200px) 518px, (min-width: 880px) calc(41vw + 34px), calc(99.29vw - 55px)";
+		}
+
+		if (!isLandscape(array[currentIndex].width, array[currentIndex].height)) {
+			return "(min-width: 1120px) 531px, (min-width: 600px) 484px, calc(89.29vw - 25px)";
+		}
+
+		return "(min-width: 1200px) 1066px, calc(93.52vw - 38px)";
 	}
 </script>
 
@@ -14,13 +20,16 @@
 
 	<div class="e-content flow flow-space-s">
 		<ul class="grid flow-space-xl" role="list">
-			<li webc:for="img of post.localImages">
+			<li
+				webc:for="(img,index) of post.localImages"
+				:data-aspect-ratio="isLandscape(img.width,img.height) ? 'landscape' : 'portrait'"
+			>
 				<framed-img
 					:@src="img.url"
 					:@alt="img.altText"
 					:@width="img.width"
 					:@height="img.height"
-					:@sizes="sizes(post.localImages)"
+					:@sizes="sizes(post.localImages,index)"
 					@widths="300,600,900,1200,1500,1800,2100"
 					@img-class="u-photo"
 				></framed-img>
@@ -52,11 +61,20 @@
 <style webc:scoped>
 	.grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
+		grid-template-rows: masonry;
 		list-style: none;
 		margin: 0;
 		padding: 0;
 		gap: 1rem;
+	}
+
+	.grid:has([data-aspect-ratio="portrait"]:first-child:last-child) {
+		display: block;
+		max-width: calc(
+			(var(--container-max-width) - 2 * var(--container-padding-inline)) *
+				0.4993359
+		);
 	}
 
 	.notes {

@@ -82,19 +82,15 @@
 					@text="`© 2023–${(new Date()).getFullYear()}`"
 					webc:nokeep
 				></template>
-				<span class="h-card">
-					<a :href="metadata.url" @text="metadata.author"></a>
-					<img
-						class=""
-						src="/icon.png"
-						alt=""
-						hidden="hidden"
-						aria-hidden="true"
-						eleventy:ignore
-					/>
-				</span>
+				<a :href="metadata.url" @text="metadata.author"></a>
 			</p>
+
 			<color-schemer></color-schemer>
+
+			<p class="h-card" hidden="hidden" aria-hidden="true">
+				<a :href="metadata.url" class="u-url" @text="metadata.title"></a>
+				<img class="u-photo" src="/icon.png" alt="" eleventy:ignore />
+			</p>
 		</page-layout-footer>
 
 		<style @raw="getBundle('css', 'defer')" webc:keep></style>

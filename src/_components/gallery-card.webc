@@ -37,11 +37,11 @@
 		--card-rotation: calc(var(--_card-rotation-offset) + 3.135deg);
 	}
 
-	li[data-landscape="true"] {
+	li[data-portrait="true"] {
 		width: calc(56.25% + var(--framed-img-border-width));
 	}
 
-	li[data-landscape="true"] img {
+	li[data-portrait="true"] img {
 		aspect-ratio: 1 / 1.414;
 	}
 
@@ -76,7 +76,7 @@
 	<ul class="covers" role="list">
 		<li
 			webc:for="img of post.localImages"
-			:data-landscape="isLandscape(img.width,img.height)"
+			:data-portrait="!isLandscape(img.width,img.height)"
 		>
 			<framed-img
 				:@src="img.url"

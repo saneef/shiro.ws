@@ -44,7 +44,7 @@ export default function (eleventyConfig) {
 	});
 
 	eleventyConfig.addJavaScriptFunction("isLandscape", function (width, height) {
-		return height > width;
+		return width >= height;
 	});
 
 	eleventyConfig.setServerPassthroughCopyBehavior("passthrough");

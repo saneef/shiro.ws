@@ -4,15 +4,14 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title @raw="title ?? metadata.title" webc:keep></title>
-		<meta name="description" webc:if="description" :content="description" />
 
 		<link rel="stylesheet" href="css/reset.css" />
 		<link rel="stylesheet" href="css/fonts.css" />
 		<link rel="stylesheet" href="css/base.css" />
 		<link rel="stylesheet" href="css/layout.flow.css" />
 
-		<style @raw="getBundle('css')" webc:keep></style>
 		<script @raw="getBundle('js')" webc:keep></script>
+		<style @raw="getBundle('css')" webc:keep></style>
 
 		<link
 			rel="preload"
@@ -29,6 +28,7 @@
 			crossorigin=""
 		/>
 
+		<meta name="description" webc:if="description" :content="description" />
 		<meta name="generator" :content="eleventy.generator" />
 		<link rel="icon" href="/favicon.ico" />
 		<link rel="icon" href="/icon.svg" type="image/svg+xml" />

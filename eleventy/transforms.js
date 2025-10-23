@@ -47,7 +47,7 @@ export function cssTransforms(eleventyConfig) {
 export function imageTransforms(eleventyConfig, options) {
 	if (isProduction) {
 		eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
-			urlPath: "images",
+			urlPath: "/images/",
 			formats: ["avif", "webp", "jpeg"],
 			widths: [300, 600, 900, 1200, 1500, 1800, 2100],
 			defaultAttributes: {

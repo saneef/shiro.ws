@@ -31,7 +31,7 @@ export default function (eleventyConfig) {
 	eleventyConfig.addShortcode("imageForRSS", async function (src, alt) {
 		let metadata = await Image(path.join(INPUT_DIR, src), {
 			outputDir: `${OUTPUT_DIR}/images/`,
-			urlPath: "images/",
+			urlPath: "images",
 			widths: [900],
 			formats: ["jpeg"],
 		});

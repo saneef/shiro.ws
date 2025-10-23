@@ -59,6 +59,7 @@ function parseImagesPageData(obj) {
 			Tags,
 			Images,
 			"Image Alt Texts": imageAltTexts,
+			Options,
 		},
 	} = obj;
 
@@ -66,6 +67,7 @@ function parseImagesPageData(obj) {
 	const title = block2Markdown(Title);
 	const date = parseDateBlock(Published);
 	const tags = parseMultiSelectBlock(Tags);
+	const options = parseMultiSelectBlock(Options);
 	const slug = slugify(title);
 	let images = parseFilesBlock(Images);
 
@@ -78,7 +80,7 @@ function parseImagesPageData(obj) {
 		};
 	});
 
-	return { title, notes, date, tags, images, slug };
+	return { title, notes, date, tags, images, slug, options };
 }
 
 function createPosts(notionData) {
@@ -88,7 +90,7 @@ function createPosts(notionData) {
 			(p) =>
 				p?.object === "page" &&
 				p?.archived === false &&
-				p?.properties?.Images?.files.length > 0,
+				p?.properties?.Images?.files.length > 0
 		)
 		.map(parseImagesPageData);
 	return imagePages;

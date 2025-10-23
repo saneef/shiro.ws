@@ -47,6 +47,16 @@ export default function (eleventyConfig) {
 		return width >= height;
 	});
 
+	eleventyConfig.addJavaScriptFunction(
+		"layout",
+		function (options, prefix = "layout-") {
+			return options
+				.filter((o) => o.startsWith(prefix))
+				.map((o) => o.replace(prefix, ""))
+				.join(" ");
+		}
+	);
+
 	eleventyConfig.setServerPassthroughCopyBehavior("passthrough");
 	eleventyConfig.addPassthroughCopy({ [`${INPUT_DIR}/public`]: "." });
 	eleventyConfig.addPassthroughCopy("./src/fonts/*.woff2");

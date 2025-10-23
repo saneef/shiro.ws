@@ -119,10 +119,12 @@ async function fetchRemoteImages(posts) {
 	return await Promise.all(
 		posts.map(async (post) => {
 			const localImages = await Promise.all(
-				post?.images?.map(({ url, altText }) => fetchRemoteImage(url, altText)),
+				post?.images?.map(({ url, altText }) => fetchRemoteImage(url, altText))
 			);
-			return { ...post, localImages };
-		}),
+
+			const localCoverImages = localImages.slice(0, 3).reverse();
+			return { ...post, localImages, localCoverImages };
+		})
 	);
 }
 

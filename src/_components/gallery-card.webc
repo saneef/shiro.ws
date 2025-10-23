@@ -75,7 +75,7 @@
 <div webc:root="override" class="flow flow-space-xs">
 	<ul class="covers" role="list">
 		<li
-			webc:for="img of post.localImages"
+			webc:for="img of post.localCoverImages"
 			:data-portrait="!isLandscape(img.width,img.height)"
 		>
 			<framed-img

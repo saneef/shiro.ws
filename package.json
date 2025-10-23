@@ -6,7 +6,7 @@
 	"scripts": {
 		"build": "NODE_ENV=production  eleventy --quiet",
 		"delete:cache": "del .cache && del src/images/remote/*.jpeg",
-		"delete:dist": "del dist",
+		"delete:dist": "del \"./dist/**\" \"!./dist/images/**\"",
 		"clean": "run-p delete:*",
 		"dev": "eleventy --serve"
 	},

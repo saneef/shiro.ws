@@ -24,10 +24,7 @@ export default function (eleventyConfig) {
 	eleventyConfig.addPlugin(filters);
 	eleventyConfig.addPlugin(htmlTransforms);
 	eleventyConfig.addPlugin(cssTransforms);
-	eleventyConfig.addPlugin(imageTransforms, {
-		eleventyInputDir: INPUT_DIR,
-		imagesOutputDir: `${OUTPUT_DIR}/images/`,
-	});
+	eleventyConfig.addPlugin(imageTransforms);
 	eleventyConfig.addPlugin(EleventyRenderPlugin);
 	eleventyConfig.addPlugin(pluginRss);
 

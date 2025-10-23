@@ -59,8 +59,14 @@
 		--framed-img-inner-border-color: var(--color-primary-shade);
 	}
 
-	:host:focus-within li:first-child {
-		--card-rotation: 0deg;
+	:host:focus-within li:nth-child(1) {
+		--card-rotation-offset: 1.139deg;
+	}
+	:host:focus-within li:nth-child(2) {
+		--card-rotation-offset: -1.9362deg;
+	}
+	:host:focus-within li:nth-child(3) {
+		--card-rotation-offset: 0.30802deg;
 	}
 </style>
 

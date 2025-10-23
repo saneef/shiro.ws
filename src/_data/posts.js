@@ -15,7 +15,7 @@ import {
 config();
 
 const apiKey = process.env.NOTION_API_KEY;
-const pageId = process.env.NOTION_PAGE_ID;
+const dataSourceId = process.env.NOTION_DATA_SOURCE_ID;
 
 // Matching the `expiry_time` of files URLs
 // provided by Notion API
@@ -27,7 +27,7 @@ const IMAGES_OUTPUT_DIR = "./src/images/remote/";
 const notion = new Client({ auth: apiKey });
 
 async function getNotionPostsData() {
-	if (apiKey === undefined || pageId === undefined) {
+	if (apiKey === undefined || dataSourceId === undefined) {
 		throw new Error("NOTION_API_KEY and NOTION_PAGE_ID is not provided");
 	}
 
@@ -40,8 +40,8 @@ async function getNotionPostsData() {
 
 	console.log("Posts cache expired. Fetching data from Notion API");
 
-	const responseJSON = await notion.databases.query({
-		database_id: pageId,
+	const responseJSON = await notion.dataSources.query({
+		data_source_id: dataSourceId,
 		sorts: [{ property: "Published on", direction: "descending" }],
 	});
 

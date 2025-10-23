@@ -5,10 +5,9 @@ We use Notion (database) as the CMS.
 The website is hosted on Netlify.
 We call Netlify's build hook from iOS or macOS shortcut app to rebuild and depoly the website.
 
-|<img src="./screenshot-of-notion-database-cms.png" alt="Screenshot of the Notion database">|
-|:--|
-|Screenshot of Notion database. The fields used in generating the website are: Published On (Date), Title (Title), Images (Files & media), Image Alt Texts (Text) and Notes (Text).|
-
+| <img src="./screenshot-of-notion-database-cms.png" alt="Screenshot of the Notion database">                                                                                        |
+| :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Screenshot of Notion database. The fields used in generating the website are: Published On (Date), Title (Title), Images (Files & media), Image Alt Texts (Text) and Notes (Text). |
 
 Each line of text (separated by a new line) from "Image Alt Texts" are used as `alt` text for each images.
 
@@ -20,7 +19,7 @@ Create a `.env` in the project root and populate these contents.
 
 ```env
 NOTION_API_KEY=<notion-api-secret>
-NOTION_PAGE_ID=<notion-database-id>
+NOTION_DATA_SOURCE_ID=<notion-data-source-id-of-the-database>
 ```
 
 ### Running development server

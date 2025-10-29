@@ -47,7 +47,11 @@
 		</div>
 
 		<p>
-			Drawn on
+			<template webc:if="post.tags.includes('craft')" webc:nokeep
+				>Made</template
+			>
+			<template webc:else webc:nokeep>Drawn</template>
+			on
 			<time
 				class="dt-published"
 				:datetime="date(post.date,'yyyy-MM-dd',)"

@@ -36,6 +36,9 @@
 	li:nth-child(3) {
 		--card-rotation: calc(var(--_card-rotation-offset) + 3.135deg);
 	}
+	li:first-child {
+		justify-self: start;
+	}
 
 	li[data-portrait="true"] {
 		width: calc(56.25% + var(--framed-img-border-width));

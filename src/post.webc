@@ -4,7 +4,7 @@
 <script webc:setup>
 	function sizes(array, currentIndex) {
 		if (array.length > 1) {
-			return "(min-width: 1200px) 518px, (min-width: 880px) calc(41vw + 34px), calc(99.29vw - 55px)";
+			return "(min-width: 1200px) 1066px, calc(93.52vw - 38px)";
 		}
 
 		if (!isLandscape(array[currentIndex].width, array[currentIndex].height)) {
@@ -34,7 +34,7 @@
 					:@width="img.width"
 					:@height="img.height"
 					:@sizes="sizes(post.localImages,index)"
-					@widths="300,600,900,1200,1500,1800,2100"
+					@widths="300,600,900,1000,1200,1400,1600,1800,2000,2100"
 					@img-class="u-photo"
 				></framed-img>
 			</li>

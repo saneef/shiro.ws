@@ -8,7 +8,7 @@
 		"delete:cache": "del .cache && del src/images/remote/*.jpeg",
 		"delete:dist": "del \"./dist/**\" \"!./dist/images/**\"",
 		"clean": "run-p delete:*",
-		"dev": "eleventy --serve"
+		"dev": "eleventy --serve --quiet"
 	},
 	"author": "Saneef Ansari <hello@saneef.com> (https://saneef.com/)",
 	"license": "MIT",
